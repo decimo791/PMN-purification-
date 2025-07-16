@@ -1,34 +1,53 @@
-# Gradle files
-.gradle/
-build/
+graph TD
+    A[Inicio: Protocolo de Purificación de Polimorfonucleares] --> B{Preparación de Soluciones};
 
-# Local configuration file (sdk path, etc)
-local.properties
+    B --> B1[Llevar PBS con Dextran T500 al 6% y Ficoll-Paque a Temperatura Ambiente];
 
-# Log/OS Files
-*.log
+    B1 --> C{Preparación de Tubos (Condiciones Estériles)};
+    C --> C1[Tubo 1 (15 ml): 0.25 ml Heparina (1000U/ml) + 2 ml PBS con Dextran al 6%];
+    C --> C2[Tubo 2 (15 ml): 5 ml Ficoll-Paque];
 
-# Android Studio generated files and folders
-captures/
-.externalNativeBuild/
-.cxx/
-*.aab
-*.apk
-output-metadata.json
+    C1 & C2 --> D{Adición de Sangre y Reposo};
+    D --> D1[Adicionar 10 ml de sangre fresca a Tubo 1];
+    D1 --> D2[Mezclar por Inversión (2-3 veces)];
+    D2 --> D3[Dejar reposar 45 minutos];
+    D3 --> D4[Reventar burbuja formada];
 
-# IntelliJ
-*.iml
-.idea/
-misc.xml
-deploymentTargetDropDown.xml
-render.experimental.xml
+    D4 --> E{Formación de Capas};
+    E --> E1[Tomar el plasma];
+    E1 --> E2[Colocar plasma en Tubo 2 (con Ficoll-Paque), formando segunda capa];
 
-# Keystore files
-*.jks
-*.keystore
+    E2 --> F{Centrifugación 1};
+    F --> F1[Centrifugar a 516xg (2160 rpm) durante 20 minutos a 4°C];
 
-# Google Services (e.g. APIs or Firebase)
-google-services.json
+    F1 --> G{Aspiración de Sobrenadante};
+    G --> G1[Aspirar el sobrenadante];
 
-# Android Profiling
-*.hprof
+    G1 --> H{Resuspensión de Pastilla (Inicio de Hielo)};
+    H --> H1[Raspar Tubo en Gradilla de Unicel];
+    H1 --> H2[Re-suspender pastilla en 3 ml de PBS (en hielo)];
+    H2 --> H3[Nota: No re-suspender pipeteando];
+
+    H3 --> I{Distribución y Lisis de Eritrocitos};
+    I --> I1[Distribuir suspensión celular en 6 tubos Eppendorf (500µl cada uno)];
+    I1 --> I2[Adicionar 1 ml de Buffer de Lisis de Eritrocitos Roche a cada tubo];
+
+    I2 --> J{Incubación con Buffer de Lisis};
+    J --> J1[Colocar tubos en hielo por 10 minutos];
+    J1 --> J2[Invertir periódicamente];
+
+    J2 --> K{Centrifugación 2};
+    K --> K1[Centrifugar a 500xg durante 5 minutos];
+
+    K1 --> L{Eliminación de Sobrenadante y Resuspensión Final};
+    L --> L1[Eliminar sobrenadante con pipeta estéril];
+    L1 --> L2[Raspar tubos en gradilla de Unicel];
+    L2 --> L3[Re-suspender pastilla en 1 ml de medio RPMI-1649 frío];
+    L3 --> L4[Mantener en hielo];
+    L4 --> L5[Tomar muestra para conteo];
+
+    L5 --> M{Ajuste de Concentración Celular};
+    M --> M1[Llevar suspensión celular a 10^7 células/ml];
+    M1 --> M2[Nota: PMN viables y funcionales a 4°C por 6-8 horas];
+
+    M2 --> N[Fin del Protocolo];
